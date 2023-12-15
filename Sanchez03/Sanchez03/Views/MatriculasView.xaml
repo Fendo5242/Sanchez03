@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sanchez03.Views.MatriculasView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="FechaMatricula"/>
+            <Entry  Text="{Binding FechaMatricula}" ></Entry>
+            <Label Text="NombreEstudiante"/>
+            <Entry Text="{Binding NombreEstudiante}"></Entry>
+            <Label Text="NombreCurso"/>
+            <Entry Text="{Binding NombreCurso}"></Entry>
+            <Label Text="Sexo"/>
+            <Entry Text="{Binding Sexo}"></Entry>
+            <Button Text="Save" Command="{Binding InsertCommand}" />
+
+            <Entry Placeholder="Filter"  Text="{Binding Filter}" HorizontalOptions="FillAndExpand"/>
+            <Button Text="ShowByText" Command="{Binding SearchCommand}" />
+            <ListView x:Name="lvPeople" ItemsSource="{Binding Matriculas}" BackgroundColor="{Binding Color}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding FechaMatricula}"></Label>
+                                <Label Text="{Binding NombreEstudiante}"></Label>
+                                <Label Text="{Binding NombreCurso}"></Label>
+                                <Label Text="{Binding Sexo}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
